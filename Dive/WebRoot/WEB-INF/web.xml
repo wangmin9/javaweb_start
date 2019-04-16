@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<!-- 配置当前 WEB 应用的初始化参数 -->
+	<context-param>
+		<param-name>author</param-name>
+		<param-value>cyan</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>date</param-name>
+		<param-value>1314</param-value>
+	</context-param>
+
+  <display-name>Dive</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 配置和映射 Servlet -->
+  <servlet>
+        <!-- Servlet 注册的名字 -->
+		<servlet-name>a1Servlet</servlet-name>
+		<!-- Servlet 的全类名 -->
+		<servlet-class>com.cashew.servlet.A1Servlet</servlet-class>
+		
+		<!-- 配置 Serlvet 的初始化参数 -->
+		<init-param>
+			<!-- 参数名 -->
+			<param-name>account</param-name>
+			<!-- 参数值 -->
+			<param-value>cashew</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>cashew123</param-value>
+		</init-param>
+		
+		<!-- 可以指定 Servlet 被创建的时机
+		负数：会在第一次请求（url）时创建（默认情况）；
+        0或正数：会在tomcat启动，当前web应用被加载时创建。数值越小，越早地被创建。 -->
+		<load-on-startup>-1</load-on-startup>
+  </servlet>
+  	<servlet-mapping>
+		<!-- 需要和某一个 servlet 节点的 serlvet-name 子节点的文本节点一致 -->
+		<servlet-name>a1Servlet</servlet-name>
+		<!-- 映射具体的访问路径: / 代表当前 WEB 应用的根目录. -->
+		<url-pattern>/a1</url-pattern>
+	</servlet-mapping>
+  
+</web-app>
