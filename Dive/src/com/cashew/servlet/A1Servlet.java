@@ -1,6 +1,7 @@
 package com.cashew.servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Enumeration;
 
 import javax.servlet.Servlet;
@@ -10,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 /**
+ * servletContext
+ * 
  * 访问：http://localhost:8080/Dive/a1
 A1Servlet's constructor
 init……
@@ -19,7 +22,7 @@ author:cyan
 author……cyan
 date……1314
 E:\apache-tomcat-7.0.85\webapps\Dive\README.md
-Dive
+toDive
 /Dive
 E:\apache-tomcat-7.0.85\webapps\Dive\WEB-INF\lib
 service……
@@ -64,14 +67,25 @@ public class A1Servlet implements Servlet{
 		
 		
 		/**
-		 * ServletContext参数
+		 * ServletContext方法
 		 */
 		System.out.println(servletContext.getRealPath("/README.md"));//发布、部署后在服务器上的路径 E:\apache-tomcat-7.0.85\webapps\Dive\README.md
-		System.out.println(servletContext.getServletContextName());// Dive，即配置文件里display-name节点里的内容
+		System.out.println(servletContext.getServletContextName());// toDive，即配置文件里display-name节点里的内容
 		System.out.println(servletContext.getContextPath());//获取当前Web应用（项目）的根目录（WebContent）  /Dive
 		
 		String picPath = servletContext.getRealPath("/WEB-INF/lib");
 		System.out.println(picPath);
+		
+		//获取当前 WEB 应用的某一个文件对应的输入流.
+		InputStream resourceAsStream = servletContext.getResourceAsStream("log4j.properties");// path 的 / 为当前 WEB 应用的根目录(WebContent)的path.
+		//因为部署后改文件的实际位置是%tomcat_home%\webapps\Dive\WEB-INF\classes,所以应该写成如下：
+		InputStream resourceAsStream2 = servletContext.getResourceAsStream("\\WEB-INF\\classes\\log4j.properties");// path 的 / 为当前 WEB 应用的根目录(WebContent)的path.
+		System.out.println("resourceAsStream: "+ resourceAsStream);
+		System.out.println("resourceAsStream2: "+ resourceAsStream2);
+		
+		//ps，另外的写法
+		InputStream resourceAsStream3 = getClass().getClassLoader().getResourceAsStream("log4j.properties");
+		System.out.println("resourceAsStream3: "+ resourceAsStream3);
 		
 	}
 	@Override

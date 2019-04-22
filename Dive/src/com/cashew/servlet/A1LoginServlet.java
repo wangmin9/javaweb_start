@@ -74,6 +74,7 @@ public class A1LoginServlet implements Servlet{
 			System.out.println("-->" + interest);
 		}
 		
+		//获得客户端传送给服务器端的所有参数的名字
 		Enumeration<String> parameterNames = request.getParameterNames();
 		while (parameterNames.hasMoreElements()) {
 			String name =  parameterNames.nextElement();

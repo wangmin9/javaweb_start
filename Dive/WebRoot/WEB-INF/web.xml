@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-<!-- 配置当前 WEB 应用的初始化参数（放在配置文件的最前面） -->
+
+  <display-name>toDive</display-name>
+  <welcome-file-list>
+     <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+<!-- 配置当前 WEB 应用的初始化参数（放在配置文件靠前处） -->
 	<context-param>
 		<param-name>author</param-name>
 		<param-value>cyan</param-value>
@@ -11,15 +21,7 @@
 		<param-value>1314</param-value>
 	</context-param>
 
-  <display-name>Dive</display-name>
-  <!-- <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list> -->
+
   
   <!-- 配置和映射 Servlet -->
   <servlet>
@@ -63,7 +65,7 @@
 		<servlet-name>a2Servlet</servlet-name>
 		<!-- 在Servlet映射到的URL中也可以使用 * 通配符，但是只能有两种固定的格式：
 一种格式是“*.扩展名”，另一种格式是以正斜杠（/）开头并以“/*”结尾，错误的：“/*.do” -->
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/a2</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -74,5 +76,52 @@
 		<servlet-name>login</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
+	
+	
+		<servlet>
+		<servlet-name>comin</servlet-name>
+		<servlet-class>com.cashew.servlet.A2LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>comin</servlet-name>
+		<url-pattern>/co</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>a3s</servlet-name>
+		<servlet-class>com.cashew.servlet.A3LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>a3s</servlet-name>
+		<url-pattern>/a3</url-pattern>
+	</servlet-mapping>
   
+  
+  	<servlet>
+		<servlet-name>a4s</servlet-name>
+		<servlet-class>com.cashew.servlet.A4LoginRedirectServ</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>a4s</servlet-name>
+		<url-pattern>/a4</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>b1s</servlet-name>
+		<servlet-class>com.cashew.MyGenericServlet.B1Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>b1s</servlet-name>
+		<url-pattern>/b1</url-pattern>
+	</servlet-mapping>
+  
+	<servlet>
+		<servlet-name>bHt</servlet-name>
+		<servlet-class>com.cashew.MyGenericServlet.B1ServletHttp</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bHt</servlet-name>
+		<url-pattern>/bht</url-pattern>
+	</servlet-mapping>
 </web-app>

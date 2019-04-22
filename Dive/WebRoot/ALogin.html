@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>welcome</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+  <!-- html修改可以不重启服务器，但可能需要清空浏览器缓存 
+  action属性值是对应的servlet的url-pattern的值，去/。
+     带/访问的是http://localhost:8080/co
+  <form action="/co" method="post"> -->
+   <form action="co">
+   <!-- name属性表示的是参数名，若参数有多个值，只能获取第一个提交的值 ，除非调用String[] getParameterValues(String name)：获得有name指定的参数的所有值 -->
+   	account:<input type="text" name="account"/>
+   	account2:<input type="text" name="account"/>
+   	password:<input type="password" name="password"/>
+   	
+   	<!-- value是真正的传给服务器的值 -->
+   	<br/>
+   	interesting: 
+	   	<input type="checkbox" name="interesting" value="ft"/>ft
+	    <input type="checkbox" name="interesting" value="ft1"/>ft1
+	    <input type="checkbox" name="interesting" value="ft2"/>ft2
+	    <input type="submit" value="sub"/>
+	    <!-- 用户在页面submit信息，交给Servlet处理（调用service(…)方法） -->
+   </form>
+   
+   <br/><br/>
+   <form action="a3">
+   	team:<input type="text" name="Team"/><br/>
+   	partner:<input type="text" name="Partner"/><br/>
+   	enemies:<br/>
+   		<input type="checkbox" name="hated" value="FCB"/>fcb<br/>
+   		<input type="checkbox" name="hated" value="AM"/>am<br/>
+   		<input type="checkbox" name="hated" value="Ajax"/>ajax<br/>
+   		<input type="submit" value="SUB"/>
+   </form>
+   
+   
+   <br/><br/>
+   <form action="a4">
+   	petName:<input type="text" name="pet"/><br/>
+   	age:<input type="text" name="age"/><br/>
+   	foods:<br/>
+   		<input type="checkbox" name="eat" value="hum"/>HUM<br/>
+   		<input type="checkbox" name="eat" value="rice"/>RICE<br/>
+   		<input type="checkbox" name="eat" value="oat"/>OAT<br/>
+   		<input type="submit" value="SUB"/>
+   </form>
+   
+   
+      <br/><br/>
+   <form action="bht" method="post">
+   	cid:<input type="text" name="Cid"/><br/>
+   	tid:<input type="text" name="Tid"/><br/>
+   		<input type="submit" value="SUB"/>
+   </form>
+  </body>
+</html>
