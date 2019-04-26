@@ -56,6 +56,7 @@
 		<url-pattern>/a1</url-pattern>
 	</servlet-mapping>
 	
+	<!-- 测试  load-on-startup-->
 	<servlet>
 		<servlet-name>a2Servlet</servlet-name>
 		<servlet-class>com.cashew.servlet.A2Servlet</servlet-class>
@@ -78,7 +79,7 @@
 	</servlet-mapping>
 	
 	
-		<servlet>
+	<servlet>
 		<servlet-name>comin</servlet-name>
 		<servlet-class>com.cashew.servlet.A2LoginServlet</servlet-class>
 	</servlet>
@@ -107,6 +108,7 @@
 		<url-pattern>/a4</url-pattern>
 	</servlet-mapping>
 	
+	<!-- GenericServlet试用 -->
 	<servlet>
 		<servlet-name>b1s</servlet-name>
 		<servlet-class>com.cashew.MyGenericServlet.B1Servlet</servlet-class>
@@ -116,6 +118,7 @@
 		<url-pattern>/b1</url-pattern>
 	</servlet-mapping>
   
+	<!-- HttpServlet试用 -->
 	<servlet>
 		<servlet-name>bHt</servlet-name>
 		<servlet-class>com.cashew.MyGenericServlet.B1ServletHttp</servlet-class>
@@ -124,4 +127,57 @@
 		<servlet-name>bHt</servlet-name>
 		<url-pattern>/bht</url-pattern>
 	</servlet-mapping>
+	
+	<!-- HttpServlet重定向，通过attribution传递参数，获取不到  -->
+	<servlet>
+		<servlet-name>c1</servlet-name>
+		<servlet-class>com.cashew.servlet.httpServlet.C1HttpServletRedirect</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>c1</servlet-name>
+		<url-pattern>/cr1</url-pattern>
+	</servlet-mapping>
+	
+	<!-- HttpServlet转发，通过attribution传递参数，获取的到  -->
+	<servlet>
+		<servlet-name>cd</servlet-name>
+		<servlet-class>com.cashew.servlet.httpServlet.C1HttpServletDispatcher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cd</servlet-name>
+		<url-pattern>/cd1</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>c1t</servlet-name>
+		<servlet-class>com.cashew.servlet.httpServlet.C1HttpServletTargetTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>c1t</servlet-name>
+		<url-pattern>/cr1t</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ca</servlet-name>
+		<servlet-class>com.cashew.servlet.httpServlet.C2HttpServletTestAtrri</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ca</servlet-name>
+		<url-pattern>/cat</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 试着给jsp配置映射 -->
+  <servlet>
+    <servlet-name>testjsp</servlet-name>
+    <jsp-file>/withJavaCode/pageTest.jsp</jsp-file>
+    <init-param>
+      <param-name>test</param-name>
+      <param-value>testValue</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>testjsp</servlet-name>
+    <url-pattern>/testjsp</url-pattern>
+  </servlet-mapping>
+	
 </web-app>

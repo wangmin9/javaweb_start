@@ -1,7 +1,6 @@
 package com.cashew.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -62,7 +61,9 @@ public class A4LoginRedirectServ implements Servlet{
 		httpServletRequest.setAttribute("type","labrado");//设置request的参数值 
 		
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		httpResponse.sendRedirect("testR");
+//		httpResponse.sendRedirect("index.jsp");
+//		httpResponse.sendRedirect("www.douban.com");//  /Dive/www.douban.com
+		httpResponse.sendRedirect("http://www.douban.com");// 这样才能重定向到别的站点
 	}
 
 }

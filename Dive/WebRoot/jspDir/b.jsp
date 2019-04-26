@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page errorPage="errorPage/error.jsp" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>b</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,24 +20,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
-    <% 
-		System.out.println("you are requsting " + basePath);
-	%>
-	
-	<!-- 殊途同归  cr1t-->
-	<a href="cr1t">toCr1t</a>
-	
-	<br><br>
-	
-	<a href="cd1">Forward</a>
-	
-	<br><br>
-	
-	<a href="cr1">Redirect</a>
-	
-	<!-- 产生一个404，使得到error.jsp  no!-->
-	<a href="az">toCr1t</a>
-	
+    b page<br>
+   <a href="c.jsp">TO c PAGE</a>
+   <!-- 
+   通过a.jsp转发到b.jsp，再通过b.jsp的超链接到c.jsp
+   这样写相对路径，浏览器会误以为是“ /Dive/c.jsp”(以为是相对于a.jsp的)，而不是“/Dive/jspDir/c.jsp”,
+  最好如下写为绝对路径。
+    -->
+    
+    <a href="<%= request.getContextPath() %>/jspDir/d.jsp">TO d PAGE</a>
+    
+    <!-- 同理，重定向也最好写成绝对路径(前面带/) -->
+    <br/>
+    <%//response.sendRedirect(request.getContextPath() + "/jspDir/d.jsp"); %>
+    
+    
   </body>
 </html>

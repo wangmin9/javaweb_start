@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page errorPage="errorPage/error.jsp" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -8,8 +7,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+    <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>attri_2.jsp</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,27 +19,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-    This is my JSP page. <br>
-    <% 
-		System.out.println("you are requsting " + basePath);
-	%>
-	
-	<!-- 殊途同归  cr1t-->
-	<a href="cr1t">toCr1t</a>
-	
+  <%--四个域对象属性获取 --%>
+ 	<h2> Attr 222 Page: <%= new Date() %> </h2>
 	<br><br>
-	
-	<a href="cd1">Forward</a>
-	
+	pageContextAttr: <%= pageContext.getAttribute("pageContextAttr") %>
 	<br><br>
-	
-	<a href="cr1">Redirect</a>
-	
-	<!-- 产生一个404，使得到error.jsp  no!-->
-	<a href="az">toCr1t</a>
-	
+	requestAttr: <%= request.getAttribute("requestAttr") %>
+	<br><br>
+	sessionAttr: <%= session.getAttribute("sessionAttr") %>	
+	<br><br>
+	applicationAttr: <%= application.getAttribute("applicationAttr") %>
   </body>
 </html>
